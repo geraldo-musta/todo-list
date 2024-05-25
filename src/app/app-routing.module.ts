@@ -10,9 +10,9 @@ const routes: Routes = [
   {path: '', redirectTo: '/manage-todo-list', pathMatch: 'full'},
   {path: 'manage-todo-list', component: MainListComponent},
   {path: 'add-activity', component: AddNewActivityComponent},
-  {path: 'update-activity', component: UpdateActivityComponent},
-  {path: 'delete-activity', component: DeleteActivityComponent},
-  {path: 'complete-activity', component: CompleteActivityComponent}
+  {path: 'update-activity/:id', component: UpdateActivityComponent},
+  {path: 'delete-activity/:id', component: DeleteActivityComponent},
+  {path: 'complete-activity/:id', component: CompleteActivityComponent}
 ];
 
 @NgModule({

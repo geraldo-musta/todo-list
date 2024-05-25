@@ -1,1 +1,8 @@
-<p>delete-activity works!</p>
+<app-form-popup
+  *ngIf="modalPopupConfig && selectedActivity"
+  [modalConfig]="modalPopupConfig"
+  [(visible)]="isDeletePopupVisible"
+  (confirm)="deleteActivity(selectedActivity.id)"
+  (cancel)="goBack()"
+>
+</app-form-popup>

@@ -1,1 +1,7 @@
-<p>complete-activity works!</p>
+<app-form-popup
+  *ngIf="modalPopupConfig && selectedActivity"
+  [modalConfig]="modalPopupConfig"
+  [(visible)]="isPopupVisible"
+  (confirm)="completeActivity(selectedActivity)"
+  (cancel)="goBack()"
+></app-form-popup>

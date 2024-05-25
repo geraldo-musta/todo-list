@@ -1,3 +1,15 @@
-.complete-btn {
-  border: 1px solid !important;
+.checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.item-center {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.actions-column {
+  white-space: nowrap;
+  width: 235px;
 }

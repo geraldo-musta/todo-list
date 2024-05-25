@@ -1,0 +1,27 @@
+<dx-popup
+  [title]="modalConfig.title ?? ''"
+  [(visible)]="visible"
+  [width]="modalConfig.width ?? ''"
+  (onHidden)="close()"
+  [height]="modalConfig.height ?? ''"
+>
+  <dxi-toolbar-item toolbar="bottom" location="center">
+    <div>
+      <dx-button
+        [text]="modalConfig.labelClose ?? ''"
+        type="normal"
+        (onClick)="close()"
+      ></dx-button>
+      <dx-button
+        [style.backgroundColor]="modalConfig.eventButtonColor"
+        [text]="modalConfig.labelSubmit ?? ''"
+        stylingMode="contained"
+        type="default"
+        (onClick)="onSaveClick()"
+      ></dx-button>
+    </div>
+  </dxi-toolbar-item>
+  <div style="font-size: 17px">
+    <div [innerHTML]="modalConfig.message"></div>
+  </div>
+</dx-popup>

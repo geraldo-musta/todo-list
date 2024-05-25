@@ -1,46 +1,77 @@
 <div class="container mt-4">
-  <div class="row mt-3 mb-3">
-    <div class="col">
+  <div class="row m-3">
+    <div class="d-flex justify-content-between align-items-center mb-4 pe-5">
       <h2>To-Do List</h2>
+      
+      <div *ngIf="activityList" class="d-flex align-items-center">
+        <div class="dropdown me-2">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ filter }}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" (click)="onFilterChange('All')">All</a>
+            <a class="dropdown-item" (click)="onFilterChange('Completed')">Completed</a>
+            <a class="dropdown-item" (click)="onFilterChange('Incomplete')">Incomplete</a>
+          </div>
+        </div>
+        <button class="btn btn-light btn-lg" (click)="addActivity()">
+          Add Activity
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Priority</th>
-            <th>DeadLine</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let activity of activityList">
-            <td>{{ activity.id }}</td>
-            <td>{{ activity.name }}</td>
-            <td>{{ activity.description }}</td>
-            <td>{{ activity.priority }}</td>
-            <td>{{ activity.deadLine | date }}</td>
-            <td>
-              <button class="btn btn-primary btn-sm me-2" (click)="editactivity(activity)">
-                Edit
-              </button>
-              <button class="btn btn-danger btn-sm me-2" (click)="deleteactivity(activity)">
-                Delete
-              </button>
-              <!-- <button class="btn btn-sm me-2 complete-btn" [ngClass]="{
-                  'btn-success': selectedActivity.isCompleted,
-                  'btn-outline-success': !selectedActivity.isCompleted
-                }" (click)="completeActivity(activity)">
-                Mark as complete
-              </button> -->
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Priority</th>
+              <th>Completed</th>
+              <th class="actions-column">Actions</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="activityList">
+            <tr *ngFor="let activity of filterList">
+              <td>{{ activity.id }}</td>
+              <td>{{ activity.name }}</td>
+              <td>{{ activity.description }}</td>
+              <td>{{ activity.priority }}</td>
+              <td class="item-center"><input type="checkbox" class="checkbox" [checked]="activity.isCompleted" disabled/></td>
+              <td>
+                <button class="btn btn-primary btn-sm me-3" (click)="editactivity(activity)">Edit</button>
+                <button class="btn btn-danger btn-sm me-3" (click)="deleteactivity(activity)">Delete</button>
+                <button class="btn btn-sm" [ngClass]="{
+                    'btn-success': activity.isCompleted,
+                    'btn-outline-success': !activity.isCompleted
+                  }"
+                  [disabled]="activity.isCompleted"
+                  (click)="completeActivity(activity)"
+                >
+                  {{ activity.isCompleted ? "Completed" : "Complete" }}
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+    <div class="d-flex justify-content-start align-items-center gap-5">
+      <div *ngIf="totalActivities">
+        <h5>Total Activities: {{totalActivities}}</h5>
+      </div>
+      <div *ngIf="completedActivities">
+        <h5>Completed: {{completedActivities}}</h5>
+      </div>
+    </div> 
   </div>
 </div>
+
+

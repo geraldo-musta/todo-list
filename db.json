@@ -1,19 +1,59 @@
 {
   "data": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Task Angular",
       "description": "Frontend",
       "priority": "High",
-      "deadLine": "2023-05-25",
       "isCompleted": false
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Task C#",
       "description": "Backend",
+      "priority": "Medium",
+      "isCompleted": false
+    },
+    {
+      "id": "3",
+      "name": "Task Python",
+      "description": "Data Analysis",
+      "priority": "High",
+      "isCompleted": false
+    },
+    {
+      "id": "4",
+      "name": "Task JavaScript",
+      "description": "Web Development",
+      "priority": "Medium",
+      "isCompleted": false
+    },
+    {
+      "id": "5",
+      "name": "Task Java",
+      "description": "Backend Services",
+      "priority": "Low",
+      "isCompleted": false
+    },
+    {
+      "id": "6",
+      "name": "Task HTML/CSS",
+      "description": "Frontend Styling",
+      "priority": "Medium",
+      "isCompleted": false
+    },
+    {
+      "id": "7",
+      "name": "Task SQL",
+      "description": "Database Management",
+      "priority": "Medium",
+      "isCompleted": false
+    },
+    {
+      "id": "8",
+      "name": "Task DevOps",
+      "description": "CI/CD Pipeline",
       "priority": "Normal",
-      "deadLine": "2023-06-15",
       "isCompleted": false
     }
   ]

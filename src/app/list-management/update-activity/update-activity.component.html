@@ -1,1 +1,18 @@
-<p>update-activity works!</p>
+<app-form-activity
+  *ngIf="selectedActivity && !isLoadingVisible"
+  title="Update Activity {{ selectedActivity.name }}"
+  eventButtonText="Update Activity"
+  [selectedActivity]="selectedActivity"
+  (confirm)="updateActivity($event)"
+  (cancel)="goBack()"
+></app-form-activity>
+
+<dx-load-panel
+  #loadPanel
+  shadingColor="rgba(0,0,0,0.4)"
+  [(visible)]="isLoadingVisible"
+  [showIndicator]="true"
+  [showPane]="true"
+  [shading]="true"
+  [hideOnOutsideClick]="false"
+></dx-load-panel>

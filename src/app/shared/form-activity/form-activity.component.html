@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div>
+        <h2 class="text-center">{{ title }}</h2>
+        <form [formGroup]="activityForm">
+          <div *ngIf="showFormID" class="form-group">
+            <label for="name">ID</label>
+            <input
+              id="id"
+              class="form-control"
+              formControlName="id"
+              type="number"
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              id="name"
+              class="form-control"
+              formControlName="name"
+              type="text"
+            />
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input
+              id="description"
+              class="form-control"
+              formControlName="description"
+              type="text"
+            />
+          </div>
+          <div class="form-group">
+            <label for="priority">Priority</label>
+            <input
+              id="priority"
+              class="form-control"
+              formControlName="priority"
+              type="text"
+            />
+          </div>
+          <div class="d-flex justify-content-end">
+            <button
+              type="cancel"
+              class="btn btn-light btn-block"
+              (click)="onClose()"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary btn-block ms-2"
+              [disabled]="activityForm.invalid"
+              (click)="onSaveClick()"
+            >
+              {{ eventButtonText }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
