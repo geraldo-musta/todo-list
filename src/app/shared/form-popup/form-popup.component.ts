@@ -12,7 +12,7 @@ export class FormPopupComponent {
   @Output() confirm = new EventEmitter();
   @Output() visibleChange = new EventEmitter<boolean>();
   @Output() cancel = new EventEmitter();
-
+  
   onSaveClick() {
     this.confirm.emit();
     this.close();

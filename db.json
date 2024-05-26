@@ -26,7 +26,7 @@
       "name": "Task JavaScript",
       "description": "Web Development",
       "priority": "Medium",
-      "isCompleted": false
+      "isCompleted": true
     },
     {
       "id": "5",
@@ -40,20 +40,13 @@
       "name": "Task HTML/CSS",
       "description": "Frontend Styling",
       "priority": "Medium",
-      "isCompleted": false
+      "isCompleted": true
     },
     {
       "id": "7",
       "name": "Task SQL",
       "description": "Database Management",
       "priority": "Medium",
-      "isCompleted": false
-    },
-    {
-      "id": "8",
-      "name": "Task DevOps",
-      "description": "CI/CD Pipeline",
-      "priority": "Normal",
       "isCompleted": false
     }
   ]

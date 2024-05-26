@@ -4,9 +4,10 @@ import {
     DxButtonModule,
     DxPopupModule,
   } from 'devextreme-angular';
+import { CommonModule } from "@angular/common";
   @NgModule({
     declarations: [FormPopupComponent],
-    imports: [DxPopupModule, DxButtonModule],
+    imports: [CommonModule, DxPopupModule, DxButtonModule],
     exports: [FormPopupComponent],
   })
   export class FormPopupModule {}

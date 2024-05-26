@@ -1,8 +1,9 @@
 <app-form-popup
-  *ngIf="modalPopupConfig && selectedActivity"
+  *ngIf="modalPopupConfig"
   [modalConfig]="modalPopupConfig"
-  [(visible)]="isDeletePopupVisible"
-  (confirm)="deleteActivity(selectedActivity.id)"
+  [(visible)]="isDeleteModalVisible"
+  (confirm)="deleteActivity(userId)"
   (cancel)="goBack()"
->
-</app-form-popup>
+></app-form-popup>
+
+

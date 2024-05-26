@@ -35,7 +35,7 @@ export class UpdateActivityComponent implements OnInit {
         this.selectedActivity = res;
         setTimeout(() => {
           this.isLoadingVisible = false;
-        }, 300);
+        }, 250);
       },
       error: () => {
         this.isLoadingVisible = false;
@@ -50,7 +50,7 @@ export class UpdateActivityComponent implements OnInit {
         setTimeout(() => {
           this.isLoadingVisible = false;
           this.router.navigate(['/manage-todo-list']);
-        }, 300);
+        }, 250);
         this.notify.success('Activity updated successfully');
       },
       error: (err) => {

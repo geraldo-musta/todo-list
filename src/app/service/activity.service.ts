@@ -13,14 +13,6 @@ export class ActivityService {
   getTodoList(): Observable<ActivityList[]> {
     return this.http.get<ActivityList[]>(environment.apiUrl);
   }
-  getCountList(): Observable<{ total: number; completed: number }> {
-    return this.getTodoList().pipe(
-      map((activities) => ({
-        total: activities.length,
-        completed: activities.filter((activity) => activity.isCompleted).length,
-      }))
-    );
-  }
   getTodoListById(id: number): Observable<ActivityList> {
     return this.http.get<ActivityList>(`${environment.apiUrl}/${id}`);
   }

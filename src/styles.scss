@@ -2,3 +2,8 @@
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+.dx-popup-bottom .dx-button {
+    min-width: 100px !important;
+    margin-left: 10px !important;
+}

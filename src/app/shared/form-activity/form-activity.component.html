@@ -1,17 +1,16 @@
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center form-width">
     <div class="col">
-      <div>
+      <div *ngIf="selectedActivity">
         <h2 class="text-center">{{ title }}</h2>
-        <form [formGroup]="activityForm">
+        <form [formGroup]="activityForm" (ngSubmit)="onSaveClick()">
           <div *ngIf="showFormID" class="form-group">
             <label for="name">ID</label>
             <input
               id="id"
               class="form-control"
               formControlName="id"
-              type="number"
-            />
+              type="number"/>
           </div>
           <div class="form-group">
             <label for="name">Name</label>
@@ -19,8 +18,7 @@
               id="name"
               class="form-control"
               formControlName="name"
-              type="text"
-            />
+              type="text"/>
           </div>
           <div class="form-group">
             <label for="description">Description</label>
@@ -28,8 +26,7 @@
               id="description"
               class="form-control"
               formControlName="description"
-              type="text"
-            />
+              type="text"/>
           </div>
           <div class="form-group">
             <label for="priority">Priority</label>
@@ -37,24 +34,18 @@
               id="priority"
               class="form-control"
               formControlName="priority"
-              type="text"
-            />
+              type="text"/>
           </div>
           <div class="d-flex justify-content-end">
             <button
-              type="cancel"
+              type="button"
               class="btn btn-light btn-block"
-              (click)="onClose()"
-            >
-              Cancel
+              (click)="onClose()">Cancel
             </button>
             <button
               type="submit"
               class="btn btn-primary btn-block ms-2"
-              [disabled]="activityForm.invalid"
-              (click)="onSaveClick()"
-            >
-              {{ eventButtonText }}
+              [disabled]="activityForm.invalid">{{ eventButtonText }}
             </button>
           </div>
         </form>
@@ -62,3 +53,4 @@
     </div>
   </div>
 </div>
+

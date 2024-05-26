@@ -12,7 +12,7 @@ import { UpdateActivityComponent } from './list-management/update-activity/updat
 import { DeleteActivityComponent } from './list-management/delete-activity/delete-activity.component';
 import { CompleteActivityComponent } from './list-management/complete-activity/complete-activity.component';
 import { FormActivityComponent } from './shared/form-activity/form-activity.component';
-import { DxLoadPanelModule } from 'devextreme-angular';
+import { DxLoadPanelModule, DxScrollViewModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,7 @@ import { DxLoadPanelModule } from 'devextreme-angular';
     FormPopupModule,
     ReactiveFormsModule,
     DxLoadPanelModule,
+    DxScrollViewModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

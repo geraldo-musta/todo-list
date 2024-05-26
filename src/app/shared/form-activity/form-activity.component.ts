@@ -9,7 +9,7 @@ import { ActivityList } from 'src/app/models/todo-model';
 })
 export class FormActivityComponent implements OnInit {
   @Input() title: string = '';
-  @Input() eventButtonText: string = 'Save';
+  @Input() eventButtonText: string = '';
   @Input() selectedActivity!: ActivityList;
   @Input() showFormID: boolean = false;
   @Output() confirm = new EventEmitter<ActivityList>();

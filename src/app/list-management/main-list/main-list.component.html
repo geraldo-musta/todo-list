@@ -1,12 +1,12 @@
-<div class="container mt-4">
+<div class="container mt-5">
   <div class="row m-3">
-    <div class="d-flex justify-content-between align-items-center mb-4 pe-5">
+    <div class="toolbar-view d-flex justify-content-between align-items-center mb-4">
       <h2>To-Do List</h2>
-      
       <div *ngIf="activityList" class="d-flex align-items-center">
-        <div class="dropdown me-2">
+        <div class="dropdown me-3">
           <button
-            class="btn btn-secondary dropdown-toggle"
+            [ngStyle]="{ 'background-color': countModel.color }"
+            class="btn btn-secondary dropdown-toggle btn-sm"
             type="button"
             id="dropdownMenuButton"
             data-bs-toggle="dropdown"
@@ -20,13 +20,15 @@
             <a class="dropdown-item" (click)="onFilterChange('Incomplete')">Incomplete</a>
           </div>
         </div>
-        <button class="btn btn-light btn-lg" (click)="addActivity()">
+        <button class="btn btn-outline-secondary btn-lg" (click)="addActivity()">
           Add Activity
         </button>
       </div>
     </div>
     <div class="row">
       <div class="col">
+        <dx-scroll-view height="90%"
+          width="100%">
         <table class="table table-striped">
           <thead>
             <tr>
@@ -44,34 +46,73 @@
               <td>{{ activity.name }}</td>
               <td>{{ activity.description }}</td>
               <td>{{ activity.priority }}</td>
-              <td class="item-center"><input type="checkbox" class="checkbox" [checked]="activity.isCompleted" disabled/></td>
+              <td class="item-center">
+                <input
+                  type="checkbox"
+                  class="checkbox"
+                  [checked]="activity.isCompleted"
+                  disabled
+                />
+              </td>
               <td>
-                <button class="btn btn-primary btn-sm me-3" (click)="editactivity(activity)">Edit</button>
-                <button class="btn btn-danger btn-sm me-3" (click)="deleteactivity(activity)">Delete</button>
-                <button class="btn btn-sm" [ngClass]="{
+                <button class="btn btn-primary btn-sm me-3"
+                  (click)="editactivity(activity)">Edit</button>
+                <button class="btn btn-danger btn-sm me-3"
+                  (click)="deleteactivity(activity)">Delete</button>
+                <button class="btn btn-sm"
+                  [ngClass]="{
                     'btn-success': activity.isCompleted,
                     'btn-outline-success': !activity.isCompleted
                   }"
                   [disabled]="activity.isCompleted"
-                  (click)="completeActivity(activity)"
-                >
+                  (click)="completeActivity(activity)">
                   {{ activity.isCompleted ? "Completed" : "Complete" }}
                 </button>
               </td>
             </tr>
           </tbody>
         </table>
+      </dx-scroll-view>   
       </div>
     </div>
     <div class="d-flex justify-content-start align-items-center gap-5">
-      <div *ngIf="totalActivities">
-        <h5>Total Activities: {{totalActivities}}</h5>
+      <div *ngIf="countModel.totalCount">
+        <h5 [ngStyle]="{ color: countModel.color }">
+          {{ countModel.totalCountTitle }}: {{ countModel.totalCount }}
+        </h5>
       </div>
-      <div *ngIf="completedActivities">
-        <h5>Completed: {{completedActivities}}</h5>
+      <div *ngIf="countModel.completedCount && countModel.showAllCount">
+        <h5 style="color: green">Completed: {{ countModel.completedCount }}</h5>
       </div>
-    </div> 
+      <div *ngIf="countModel.incompleteCount && countModel.showAllCount">
+        <h5 style="color: orange">Incomplete: {{ countModel.incompleteCount }}</h5>
+      </div>
+    </div>
   </div>
 </div>
 
+<app-delete-activity
+  *ngIf="isDeleteModalVisible"
+  [selectedActivity]="selectedActivity"
+  [(isDeleteModalVisible)]="isDeleteModalVisible"
+  (submitEvent)="refreshList($event)"
+  (isLoadingVisible)="showLoadPanel($event)">
+</app-delete-activity>
 
+<app-complete-activity
+  *ngIf="isCompleteModalVisivle"
+  [selectedActivity]="selectedActivity"
+  [(isCompleteModalVisible)]="isCompleteModalVisivle"
+  (submitEvent)="refreshList($event)"
+  (isLoadingVisible)="showLoadPanel($event)"
+></app-complete-activity>
+
+<dx-load-panel
+  #loadPanel
+  shadingColor="rgba(0,0,0,0.4)"
+  [(visible)]="isLoadingVisible"
+  [showIndicator]="true"
+  [showPane]="true"
+  [shading]="true"
+  [hideOnOutsideClick]="false"
+></dx-load-panel>

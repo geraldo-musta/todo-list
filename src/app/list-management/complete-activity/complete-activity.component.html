@@ -1,7 +1,7 @@
 <app-form-popup
-  *ngIf="modalPopupConfig && selectedActivity"
+  *ngIf="modalPopupConfig"
   [modalConfig]="modalPopupConfig"
-  [(visible)]="isPopupVisible"
-  (confirm)="completeActivity(selectedActivity)"
+  [(visible)]="isCompleteModalVisible"
+  (confirm)="completeActivity(_activity)"
   (cancel)="goBack()"
 ></app-form-popup>

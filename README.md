@@ -28,3 +28,19 @@ Il tuo obiettivo è creare una semplice applicazione Angular per la gestione di 
 
 ## Scopo
 Lo scopo di questo test è capire come ragioni, come approcci e risolvi problemi e, ovviamente, il tuo lato creativo. Sorprendici!
+
+
+
+
+## -------------------------------------------------------------------------------------------------
+## DA SAPERE
+- L'applicazione ha un JSON Server integrato per rendere i dati persistenti tra le API calls.
+- Il comando per avviare il API server e' inserito nello script, per cui entrambi i server possono essere avviati uttilizzando "npm start".
+
+- L'applicazione uttilizza la routing per passare l'activity ID e navigare, e dei componenti, servizzi condivisi per uttilizzo piu' dinamico.
+
+- I UI uttilizzati per lo styling sono Bootstrap e DevExtreme(popup, load panel, scroll view).
+- Il tipo di form scelto e' reactive forms, per avere piu' controllo e' flessibilita'.
+- La struttura dei componenti e' nestata, per renderli piu' riutilizzabili;
+
+Grazie.

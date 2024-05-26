@@ -1,7 +1,7 @@
 <app-form-activity
   *ngIf="selectedActivity && !isLoadingVisible"
   title="Update Activity {{ selectedActivity.name }}"
-  eventButtonText="Update Activity"
+  eventButtonText="Update"
   [selectedActivity]="selectedActivity"
   (confirm)="updateActivity($event)"
   (cancel)="goBack()"

@@ -21,12 +21,11 @@ export class AddNewActivityComponent implements OnInit {
 
   ngOnInit(): void {
     this.newActivity = {
-      id: 0,
       name: '',
       description: '',
       priority: '',
       isCompleted: false,
-    };
+    } as ActivityList;
   }
 
   addActivity(model: ActivityList) {
@@ -36,7 +35,7 @@ export class AddNewActivityComponent implements OnInit {
         setTimeout(() => {
           this.isLoadingVisible = false;
           this.router.navigate(['/manage-todo-list']);
-        }, 300);
+        }, 250);
         this.notify.success('Activity added successfully');
       },
       error: (err) => {
